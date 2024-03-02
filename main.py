@@ -1,7 +1,8 @@
 import asyncio
 import logging
-from aiogram import Bot, Dispatcher, types  # , F
+from aiogram import Bot, Dispatcher
 from aiogram.filters.command import Command
+
 from config import Token
 from hendlers import start_com
 from start import start_up, start_down
