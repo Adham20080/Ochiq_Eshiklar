@@ -6,8 +6,10 @@ from aiogram.filters.command import Command
 from config import Token
 from hendlers import start_com
 from start import start_up, start_down
+from db import Database
 
 bot = Bot(token=Token)
+db = Database("db.db")
 dp = Dispatcher()
 logging.basicConfig(level=logging.INFO)
 
