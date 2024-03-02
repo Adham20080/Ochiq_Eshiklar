@@ -1,15 +1,16 @@
 import sqlite3
 
 conn = sqlite3.connect('db.db')
+cursor = conn.cursor()
 
-conn.execute("""
+cursor.execute("""
     CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY
         first_name TEXT NOT NULL
         last_name TEXT NULL
-        username TEXT NOT NULL
-    )"""
-             )
+        username TEXT NULL
+        user_id INTEGER NOT NULL
+    )""")
 
 
 class Database:
@@ -24,7 +25,7 @@ class Database:
 
     def add_user(self, full_name, username, user_id):
         with self.connection:
-            return self.cursor.execute('INSERT INTO users (full_name, username, user_id) VALUES (?, ?, ?)',
+            return self.cursor.execute('INSERT INTO users (first_name, last_name, username, user_id) VALUES (?, ?, ?)',
                                        (full_name, username, user_id))
 
 
